@@ -24,7 +24,7 @@
     "date-fns": "^4.1.0",
     "fumadocs-core": "^14.5.4",
     "import-in-the-middle": "^1.11.2",
-    "lucide-react": "^0.461.0",
+    "lucide-react": "^0.462.0",
     "mdx-bundler": "^10.0.3",
     "next": "15.0.3",
     "react": "18.3.1",
