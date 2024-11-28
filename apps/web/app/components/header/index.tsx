@@ -1,7 +1,9 @@
-'use client';
+"use client";
 
-import { ModeToggle } from '@repo/design-system/components/mode-toggle';
-import { Button } from '@repo/design-system/components/ui/button';
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Button } from "@repo/design-system/components/ui/button";
+import { ModeToggle } from "@repo/design-system/components/mode-toggle";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,62 +11,75 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from '@repo/design-system/components/ui/navigation-menu';
-import { env } from '@repo/env';
-import { Menu, MoveRight, X } from 'lucide-react';
-import Link from 'next/link';
-import { useState } from 'react';
-
-import Image from 'next/image';
-import Logo from './logo.svg';
+} from "@repo/design-system/components/ui/navigation-menu";
+import { env } from "@repo/env";
+import { Menu, MoveRight, X } from "lucide-react";
+import Image from "next/image";
+import Logo from "./logo.svg";
 
 export const Header = () => {
   const navigationItems = [
     {
-      title: 'Home',
-      href: '/',
-      description: '',
+      title: "Home",
+      href: "/",
+      description: "",
     },
     {
-      title: 'Product',
-      description: 'Managing a small business today is already tough.',
+      title: "Product",
+      description: "Managing a small business today is already tough.",
       items: [
         {
-          title: 'Pricing',
-          href: '/pricing',
+          title: "Pricing",
+          href: "/pricing",
         },
         {
-          title: 'Pricing',
-          href: '/pricing',
+          title: "Pricing",
+          href: "/pricing",
         },
         {
-          title: 'Pricing',
-          href: '/pricing',
+          title: "Pricing",
+          href: "/pricing",
         },
         {
-          title: 'Pricing',
-          href: '/pricing',
+          title: "Pricing",
+          href: "/pricing",
         },
       ],
     },
     {
-      title: 'Blog',
-      href: '/blog',
-      description: '',
+      title: "Blog",
+      href: "/blog",
+      description: "",
     },
   ];
 
   if (env.NEXT_PUBLIC_DOCS_URL) {
     navigationItems.push({
-      title: 'Docs',
+      title: "Docs",
       href: env.NEXT_PUBLIC_DOCS_URL,
-      description: '',
+      description: "",
     });
   }
 
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setOpen] = useState(false);
+
+  // Scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // Trigger when scrolled past 50px
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 left-0 z-40 w-full border-b bg-background">
+    <header
+      className={`fixed top-0 left-0 z-40 w-full transition-all duration-300 ${
+        isScrolled ? "bg-background shadow-lg" : "bg-transparent"
+      }`}
+    >
       <div className="container relative mx-auto flex min-h-20 flex-row items-center gap-4 lg:grid lg:grid-cols-3">
         <div className="hidden flex-row items-center justify-start gap-4 lg:flex">
           <NavigationMenu className="flex items-start justify-start">
@@ -157,11 +172,11 @@ export const Header = () => {
                         href={item.href}
                         className="flex items-center justify-between"
                         target={
-                          item.href.startsWith('http') ? '_blank' : undefined
+                          item.href.startsWith("http") ? "_blank" : undefined
                         }
                         rel={
-                          item.href.startsWith('http')
-                            ? 'noopener noreferrer'
+                          item.href.startsWith("http")
+                            ? "noopener noreferrer"
                             : undefined
                         }
                       >

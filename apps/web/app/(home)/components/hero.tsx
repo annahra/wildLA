@@ -1,42 +1,36 @@
-import { Button } from '@repo/design-system/components/ui/button';
-import { env } from '@repo/env';
-import { allPosts } from 'content-collections';
-import { MoveRight, PhoneCall } from 'lucide-react';
-import Link from 'next/link';
+import { Button } from "@repo/design-system/components/ui/button";
+import { env } from "@repo/env";
+import { allPosts } from "content-collections";
+import { MoveRight, PhoneCall } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 export const Hero = () => (
-  <div className="w-full">
-    <div className="container mx-auto">
-      <div className="flex flex-col items-center justify-center gap-8 py-20 lg:py-40">
-        <div>
-          <Button variant="secondary" size="sm" className="gap-4" asChild>
-            <Link href={`/blog/${allPosts[0]._meta.path}`}>
-              Read our latest article <MoveRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
-        <div className="flex flex-col gap-4">
-          <h1 className="max-w-2xl text-center font-regular text-5xl tracking-tighter md:text-7xl">
-            This is the start of something new
-          </h1>
-          <p className="max-w-2xl text-center text-lg text-muted-foreground leading-relaxed tracking-tight md:text-xl">
-            Managing a small business today is already tough. Avoid further
-            complications by ditching outdated, tedious trade methods. Our goal
-            is to streamline SMB trade, making it easier and faster than ever.
-          </p>
-        </div>
-        <div className="flex flex-row gap-3">
-          <Button size="lg" className="gap-4" variant="outline" asChild>
-            <Link href="/contact">
-              Get in touch <PhoneCall className="h-4 w-4" />
-            </Link>
-          </Button>
-          <Button size="lg" className="gap-4" asChild>
-            <Link href={env.NEXT_PUBLIC_APP_URL}>
-              Sign up <MoveRight className="h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
+  <div className="relative h-screen w-full">
+    {/* Full-Width Background Image */}
+    <Image
+      src="/landing-page/Echo_Park_Lake_with_Downtown_Los_Angeles_Skyline.jpg"
+      alt="Echo Park Lake with Downtown Los Angeles Skyline"
+      layout="fill" // Ensures the image spans the entire container
+      objectFit="cover" // Ensures the image covers the container
+      priority // Ensures the image loads quickly
+    />
+
+    {/* Overlay Content */}
+    <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 px-4 text-center text-white">
+      <h1 className="max-w-3xl font-bold text-5xl leading-tight md:text-7xl">
+        Turn Your Actions Into Impact
+      </h1>
+      <p className="mt-4 max-w-2xl text-lg md:text-xl">
+        Join challenges, log eco-friendly actions, and compete for rewards while
+        making Los Angeles a better place.
+      </p>
+      <div className="mt-8 flex flex-row gap-4">
+        <Button size="lg" className="gap-4" asChild>
+          <Link href={env.NEXT_PUBLIC_APP_URL}>
+            Sign up <MoveRight className="h-4 w-4" />
+          </Link>
+        </Button>
       </div>
     </div>
   </div>
