@@ -253,8 +253,8 @@ importers:
         specifier: ^8.4.5
         version: 8.4.5(@types/react@18.3.12)(storybook@8.4.5(bufferutil@4.0.8))
       '@storybook/addon-interactions':
-        specifier: ^8.4.5
-        version: 8.4.5(storybook@8.4.5(bufferutil@4.0.8))
+        specifier: ^8.4.6
+        version: 8.4.6(storybook@8.4.5(bufferutil@4.0.8))
       '@storybook/addon-onboarding':
         specifier: ^8.4.5
         version: 8.4.5(react@18.3.1)(storybook@8.4.5(bufferutil@4.0.8))
@@ -4205,10 +4205,10 @@ packages:
     peerDependencies:
       storybook: ^8.4.5
 
-  '@storybook/addon-interactions@8.4.5':
-    resolution: {integrity: sha512-s6R8XVD8LTp+LQTDbhtDjDLE6S44I7FtMLxPdMNwN9VEJjBk01NONLDuGDpNq5o/0bnybA3rMHk9+3afsgzidQ==}
+  '@storybook/addon-interactions@8.4.6':
+    resolution: {integrity: sha512-sR2oUSYIGUoAdrHT+fM1zgykhad98bsJ11c79r7HfBMXEPWc1yRcjIMmz8Xz06FMROMfebqduYDf60V++/I0Jw==}
     peerDependencies:
-      storybook: ^8.4.5
+      storybook: ^8.4.6
 
   '@storybook/addon-measure@8.4.5':
     resolution: {integrity: sha512-+sNjew991YaoXQyWWloFybjEGrDO40Jk6w8BgZs2X7oc3D5t/6oFzvyC862U++LGqKFA3quXDeBjEb92CI9cRA==}
@@ -13506,11 +13506,11 @@ snapshots:
       '@storybook/global': 5.0.0
       storybook: 8.4.5(bufferutil@4.0.8)
 
-  '@storybook/addon-interactions@8.4.5(storybook@8.4.5(bufferutil@4.0.8))':
+  '@storybook/addon-interactions@8.4.6(storybook@8.4.5(bufferutil@4.0.8))':
     dependencies:
       '@storybook/global': 5.0.0
-      '@storybook/instrumenter': 8.4.5(storybook@8.4.5(bufferutil@4.0.8))
-      '@storybook/test': 8.4.5(storybook@8.4.5(bufferutil@4.0.8))
+      '@storybook/instrumenter': 8.4.6(storybook@8.4.5(bufferutil@4.0.8))
+      '@storybook/test': 8.4.6(storybook@8.4.5(bufferutil@4.0.8))
       polished: 4.3.1
       storybook: 8.4.5(bufferutil@4.0.8)
       ts-dedent: 2.2.0
